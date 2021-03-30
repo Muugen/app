@@ -8,7 +8,7 @@
                 
                  <label for="categorie">Catégorie</label>
                  <input type="text" id="categorie" name="categorie" class="form-control" placeholder="Entrez une catégorie...">
-                <button type="submit" class="btn btn-primary  col-12 mt-2" name="soumis">Ajouter</button>
+                <button type="submit" class="btn btn-primary  col-12 mt-2" name="valider">Ajouter</button>
                 </form>
          </div>
      </div>

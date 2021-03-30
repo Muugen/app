@@ -8,7 +8,7 @@
                  <input type="text" class="form-control"  value="<?=$cat->getId_cat();?>" readonly>
                  <label for="categorie">Catégorie</label>
                  <input type="text" id="categorie" name="categorie" class="form-control" value="<?=$cat->getNom_cat();?>">
-                <button type="submit" class="btn btn-warning col-12 mt-2" name="soumis">Modifier</button>
+                <button type="submit" class="btn btn-warning col-12 mt-2" name="valider">Modifier</button>
                 </form>
          </div>
      </div>
