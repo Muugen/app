@@ -4,7 +4,7 @@ class AdminUtilisateurModel extends Driver{
     public function getUsers(){
         $sql = "SELECT * FROM utilisateurs u
                 INNER JOIN grade g
-                ON u.id = g.id_g
+                ON u.id_g = g.id_g
                 ORDER BY u.id DESC";
 
         $result = $this->getRequest($sql);
@@ -33,5 +33,15 @@ class AdminUtilisateurModel extends Driver{
         $result = $this->getRequest($sql, ['statut'=>$user->getStatut(), 'id'=>$user->getId()]);
 
         return $result->rowCount();
+    }
+
+    public function signIn($loginEmail, $pass){
+        $sql = "SELECT * FROM utilisateurs 
+                WHERE (login = :logEmail OR email = :logEmail) AND pass = :pass";
+        $result = $this->getRequest($sql, ['logEmail'=>$loginEmail, 'pass'=>$pass]);
+
+        $row = $result->fetch(PDO::FETCH_OBJ);
+
+        return $row;
     }
 }

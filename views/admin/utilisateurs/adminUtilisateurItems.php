@@ -14,7 +14,7 @@
           </tr>
       </thead>
       <tbody>
-          <?php foreach ($allUsers as  $user) { ?>
+          <?php foreach ($allUsers as $user) { ?>
           <tr>
               <td><?=$user->getId();?></td>
               <td><?=$user->getNom();?></td>

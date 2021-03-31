@@ -12,6 +12,7 @@ class AdminVoitureController{
     }
 
     public function listVoitures(){
+        AuthController::isLogged();
         if(isset($_POST['valider']) && !empty($_POST['search'])){
             $search = trim(htmlspecialchars(addslashes($_POST['search'])));
             $cars = $this->advm->getVoitures($search);
@@ -24,6 +25,7 @@ class AdminVoitureController{
     }
 
     public function addVoitures(){
+        AuthController::isLogged();
         if(isset($_POST['valider']) && !empty($_POST['marque'] && !empty($_POST['prix']))){
             $marque = trim(htmlentities(addslashes($_POST['marque'])));
             $modele = trim(htmlentities(addslashes($_POST['modele'])));
@@ -58,6 +60,7 @@ class AdminVoitureController{
     }
 
     public function removeVoiture(){
+        AuthController::isLogged();
         if(isset($_GET) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
             $id = $_GET['id'];
             $delV = new Voiture();
@@ -71,6 +74,7 @@ class AdminVoitureController{
     }
 
     public function editVoiture(){
+        AuthController::isLogged();
         if(isset($_GET) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
             $id = $_GET['id'];
             $editV = new Voiture();

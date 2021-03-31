@@ -12,14 +12,12 @@
 <body>
 
   <div class="sidenav">
-    <!-- <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a> -->
     <div class="text-center">
       <i class="fas fa-car fa-3x text-white"></i>
     </div>
-    <a href=""><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Deconnexion</a>
+    <?php if(isset($_SESSION['auth'])){?>
+      <a href="index.php?action=logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Deconnexion</a>
+    
     <button class="dropdown-btn"><i class="fas fa-bars"></i> Catégorie
       <i class="fa fa-caret-down"></i>
     </button>
@@ -48,14 +46,11 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Ajout</a>
-      <a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Liste</a>
+      <a href="index.php?action=list_u"><i class="fa fa-bars" aria-hidden="true"></i> Liste</a>
       <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i> Inscription</a>
-      <a href="#"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Connexion</a>
     </div>
-    <!-- <a href="#contact">Search</a> -->
+    <?php } ?>
   </div>
-
   <div class="main">
     <h1 class="bg-secondary text-center text-white">ADMINISTRATION</h1>
     <?= $contenu; ?>
