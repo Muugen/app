@@ -5,7 +5,7 @@
      <div class="col-4 offset-8">
      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="input-group">
         <input class="form-control text-center" type="search" name="search" id="search" placeholder="Rechecher...">
-        <button type="submit" class="btn btn-outline-secondary" name="soumis"><i class="fas fa-search"></i></button>
+        <button type="submit" class="btn btn-outline-secondary" name="valider"><i class="fas fa-search"></i></button>
      </form>
      </div>
  </div>
@@ -38,18 +38,18 @@
               <td ><?=$car->getDescription();?></td>
               <td><?=$car->getCategorie()->getNom_cat();?></td>
               <td class="text-center">
-                <a class="btn btn-success" href="#">
+                <a class="btn btn-success" href="index.php?action=edit_v&id=<?=$car->getId_v();?>">
                     <i class="fas fa-pen"></i>
                 </a>
               </td>
               <td  class="text-center">
-                <a class="btn btn-danger" href="#"
-                    onclick="return confirm('Etes vous sûr de ...')">
+                <a class="btn btn-danger" href="index.php?action=delete_v&id=<?=$car->getId_v();?>"
+                    onclick="return confirm('Etes vous sûr de supprimer')">
                     <i class="fas fa-trash"></i>
                 </a>
               </td>
           </tr>
-          <?php }}else{ echo"<tr ><td class='text-center'>".$cars."</td></tr>";} ?>
+          <?php }}else{ echo"<tr class='text-center'><td colspan='10'>".$cars."</td></tr>";} ?>
       </tbody>
   </table>
   

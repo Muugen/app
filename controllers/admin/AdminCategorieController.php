@@ -1,7 +1,4 @@
 <?php
-// require_once('../../models/Driver.php');
-// require_once('../../models/Categorie.php');
-// require_once('../../models/admin/AdminCategorieModel.php');
 
 class AdminCategorieController{
 
@@ -14,15 +11,7 @@ class AdminCategorieController{
     public function listCategories(){
          $allCat = $this->adCat->getCategories();
          require_once('./views/admin/adminCategoriesItems.php');
-        //  return $allCat;
     }
-
-    // public function removeCat($idCat){
-    //     $nbLine = $this->adCat->deleteCat($idCat);
-    //     if($nbLine > 0){
-    //         header('location: index.php?action=list_cat');
-    //     }
-    // }
 
     public function removeCat(){
         
@@ -72,5 +61,3 @@ class AdminCategorieController{
         require_once('./views/admin/adminAddCat.php');
     }
 }
-// $adminCat = new AdminCategorieController();
-// var_dump($adminCat->listCategories()) ;

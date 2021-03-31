@@ -13,9 +13,9 @@
 
   <div class="sidenav">
     <!-- <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a> -->
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a> -->
     <div class="text-center">
       <i class="fas fa-car fa-3x text-white"></i>
     </div>
@@ -50,8 +50,8 @@
     <div class="dropdown-container">
       <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Ajout</a>
       <a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Liste</a>
-      <a href="#"><i class="fa fa-registered" aria-hidden="true"></i> Inscription</a>
-      <a href="#"><i class="fas fa-key"></i> Connexion</a>
+      <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i> Inscription</a>
+      <a href="#"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Connexion</a>
     </div>
     <!-- <a href="#contact">Search</a> -->
   </div>
