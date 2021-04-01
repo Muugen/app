@@ -3,10 +3,12 @@
 class AdminUtilisateurController{
 
     private $adUser;
+    private $adG;
 
     public function __construct()
     {
         $this->adUser = new AdminUtilisateurModel();
+        $this->adG = new AdminGrademodel();
     }
 
     public function listUsers(){
@@ -53,5 +55,34 @@ class AdminUtilisateurController{
         }
         
         require_once('./views/admin/utilisateurs/login.php');
+    }
+
+    public function addUser(){
+        if(isset($_POST['valider'])){
+            if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && strlen($_POST['pass']) >= 4){
+                $nom = trim(htmlentities(addslashes($_POST['nom'])));
+                $prenom = trim(htmlentities(addslashes($_POST['prenom'])));
+                $email = trim(htmlentities(addslashes($_POST['email'])));
+                $pass = md5(trim(htmlentities(addslashes($_POST['pass']))));
+                $id_g = trim(htmlentities(addslashes($_POST['grade'])));
+                $login = trim(htmlentities(addslashes($_POST['login'])));
+                
+                $newUser = new Utilisateurs();
+                $newUser->setNom($nom);
+                $newUser->setPrenom($prenom);
+                $newUser->setEmail($email);
+                $newUser->setPass($pass);
+                $newUser->setLogin($login);
+                $newUser->setStatut(1);
+                $newUser->getGrade()->setId_g($id_g);
+
+                $ok = $this->adUser->register($newUser);
+                    if($ok && is_bool($ok)){
+                    header('location:index.php?action=login');
+                }
+            }
+        }
+        $allGrades = $this->adG->getGrades();
+        require_once('./views/admin/utilisateurs/register.php');
     }
 }

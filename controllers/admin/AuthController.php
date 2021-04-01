@@ -15,4 +15,11 @@ class AuthController{
         unset($_SESSION['auth']);
         header('location:index.php?action=login');
     }
+
+    public static function accessUser(){
+        if($_SESSION['auth']->id_g == 3){
+            header('location:index.php?action=login');
+            exit;
+        }
+    }
 }

@@ -19,12 +19,14 @@
                 <i class="fas fa-pen"></i>
               </a>
               </td>
+              <?php if($_SESSION['auth']->id_g != 3) { ?>
               <td  class="text-center">
                 <a class="btn btn-danger" href="index.php?action=delete_cat&id=<?=$cat->getId_cat();?>"
                     onclick="return confirm('Etes vous sûr de supprimer')">
                     <i class="fas fa-trash"></i>
                 </a>
               </td>
+              <?php } ?>
           </tr>
           <?php } ?>
       </tbody>

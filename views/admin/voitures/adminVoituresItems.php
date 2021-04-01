@@ -42,12 +42,14 @@
                     <i class="fas fa-pen"></i>
                 </a>
               </td>
+              <?php if($_SESSION['auth']->id_g != 3) { ?>
               <td  class="text-center">
                 <a class="btn btn-danger" href="index.php?action=delete_v&id=<?=$car->getId_v();?>"
                     onclick="return confirm('Etes vous sûr de supprimer')">
                     <i class="fas fa-trash"></i>
                 </a>
               </td>
+              <?php }?>
           </tr>
           <?php }}else{ echo"<tr class='text-center'><td colspan='10'>".$cars."</td></tr>";} ?>
       </tbody>

@@ -17,7 +17,7 @@ class AdminCategorieController{
 
     public function removeCat(){
         AuthController::isLogged();
-
+        AuthController::accessUser();
         if(isset($_GET['id']) && $_GET['id'] < 1000 && filter_var($_GET['id'],FILTER_VALIDATE_INT)){
 
             $id = trim($_GET['id']);

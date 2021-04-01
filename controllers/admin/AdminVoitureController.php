@@ -61,6 +61,7 @@ class AdminVoitureController{
 
     public function removeVoiture(){
         AuthController::isLogged();
+        AuthController::accessUser();
         if(isset($_GET) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
             $id = $_GET['id'];
             $delV = new Voiture();
@@ -108,9 +109,7 @@ class AdminVoitureController{
                 move_uploaded_file($_FILES['image']['tmp_name'],$destination.$image);
                 $ok = $this->advm->updateVoiture($editCar);
     
-                if($ok){
-                    header('location:index.php?action=list_v');
-                }
+                header('location:index.php?action=list_v');
             }
             require_once('./views/admin/voitures/adminEditV.php');
         }
