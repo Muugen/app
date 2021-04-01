@@ -1,12 +1,12 @@
 <?php
 
-sql_autoload_register(chargement());
 function chargement($class){
-    $tabFolders = ["./models/$class.php", "./models/admin/$class.php", "./contrrollers/admin/$class.php"];
-
-    foreach($tabFolders as $folder){
-        if(file_exists($folder)){
-            require $folder;
+    $tabFiles = ["./models/$class.php", "./models/admin/$class.php", "./controllers/admin/$class.php"];
+    
+    foreach($tabFiles as $file){
+        if(file_exists($file)){
+            require_once $file;
         }
     }
 }
+spl_autoload_register('chargement');
